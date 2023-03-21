@@ -1,0 +1,27 @@
+.btncolor {
+background-color: #b91a1a !important;
+border: none;
+}
+
+img {
+    height: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+   
+
+}
+
+.cardstyle {
+    margin-top: 80px;
+    margin-bottom: 100px;
+    margin-right: 200px;
+    margin-left: 200px;
+}
+
+.forminputsmall {
+    padding-left: 10px;
+    padding-right: 50px;
+    width: 300px;
+}
