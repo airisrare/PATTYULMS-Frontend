@@ -1,14 +1,12 @@
 import React from "react";
-
-
+import ConceptList from "../components/ConceptList";
 
 class Concepts extends React.Component {
   render() {
     return (
-      <p>
-        This is the Concept page
-      </p>
-       
+      <div>
+        <ConceptList />
+      </div>
     );
   }
 }

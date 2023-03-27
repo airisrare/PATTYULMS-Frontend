@@ -1,24 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from "./pages/Home"
-import Concepts from './pages/Concepts';
-import NavBar from './components/NavBar';
-import Login from './pages/Login';
-import Cart from './pages/Cart';
-import Register from './pages/Register';
-import ConceptCreate from './pages/ConceptCreate';
-import ProductCreate from './pages/ProductCreate';
-import EmblemLogo from './components/EmblemLogo';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Concepts from "./pages/Concepts";
+import NavBar from "./components/NavBar";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
+import Register from "./pages/Register";
+import ConceptCreate from "./pages/ConceptCreate";
+import ProductCreate from "./pages/ProductCreate";
+import EmblemLogo from "./components/EmblemLogo";
+import UsersPage from "./pages/UsersPage";
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
 
 export default function App() {
   return (
-    //<React.StrictMode>
+    //This is the browser router
     <BrowserRouter>
       <NavBar />
       <EmblemLogo />
@@ -30,16 +31,14 @@ export default function App() {
         <Route path="register" element={<Register />} />
         <Route path="conceptCreate" element={<ConceptCreate />} />
         <Route path="productCreate" element={<ProductCreate />} />
+        <Route path="usersPage" element={<UsersPage />} />
       </Routes>
     </BrowserRouter>
-    //</React.StrictMode>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
-
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

@@ -16,12 +16,51 @@ img {
 .cardstyle {
     margin-top: 80px;
     margin-bottom: 100px;
-    margin-right: 200px;
-    margin-left: 200px;
+    margin-right: 350px;
+    margin-left: 350px;
 }
 
 .forminputsmall {
     padding-left: 10px;
     padding-right: 50px;
     width: 300px;
+    
 }
+
+.formLabel {
+    font-weight: bold;
+}
+
+.figureimage{
+    width: 900px;
+    height: 1000px;
+    background-color: #b91a1a;
+    
+}
+
+/* This is for each individual card component */
+.productCardDisplay{
+    width: 500px;
+    height: 550px;
+    background-color: #b9b6b6;
+    display: flex;
+    margin: 20px;
+    
+}
+
+/* This is for all the cards  */
+.productCardFlex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    
+}
+
+
+
+
+
+
+
+
