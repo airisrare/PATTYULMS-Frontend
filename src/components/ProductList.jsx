@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import ProductService from "../service/ProductService";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 function ProductList() {
   //Getter and setter -> [] array is empty on startup
@@ -21,18 +22,27 @@ function ProductList() {
       {/* <h2>Products</h2> */}
       {products.map((product) => {
         return (
-          <Card key={product.title} className="productCardDisplay">
-            <Card.Img
-              variant="top"
-              src={product.imageURL}
-              style={{ width: "20rem", height: "35rem" }}
-            />
-            <Card.Body>
-              <Card.Title>Title: {product.title}</Card.Title>
-              <Card.Text>Size: {product.size}</Card.Text>
-              <Card.Text>Price: {product.price}</Card.Text>
-            </Card.Body>
-          </Card>
+          <div key={product.title}>
+            <Link
+              to={`/productInspect/${product.productID}`}
+              className="colorLink"
+              //onClick={() => handleCardClick(product)}
+            >
+              {/* onClick={handleEvent} */}
+              <Card className="productCardDisplay">
+                <Card.Img
+                  variant="top"
+                  src={product.imageURL}
+                  style={{ width: "20rem", height: "35rem" }}
+                />
+                <Card.Body>
+                  <Card.Title>Title: {product.title}</Card.Title>
+                  <Card.Text>Size: {product.size}</Card.Text>
+                  <Card.Text>Price: ${product.price}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Link>
+          </div>
         );
       })}
     </div>

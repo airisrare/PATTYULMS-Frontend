@@ -5,6 +5,18 @@ class ProductService {
     return http.get("/api/products");
   }
 
+  getProduct(id) {
+    return http.get("/api/products/" + id);
+  }
+
+  editProduct(id, formData) {
+    return http.put("/api/products/" + id, formData);
+  }
+
+  deleteProduct(id) {
+    return http.delete("/api/products/" + id);
+  }
+
   postProduct(formData) {
     return http.post("/api/products", formData, {
       headers: {

@@ -28,74 +28,79 @@ function ConceptCreate() {
   };
 
   return (
-    <Card className="cardstyle">
-      <Form.Group className="text-center"></Form.Group>
-      <Card.Header>Concept Create</Card.Header>
-      <Card.Body>
-        <Form onSubmit={handleSubmit} encType="multipart/form-data">
-          <Form.Group>
-            <Form.Label className="formLabel">Title</Form.Label>
-            <Form.Control
-              type="title"
-              placeholder="Title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <Form.Text className="text-muted">
-              What will we call this Concept?
-            </Form.Text>
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Description</Form.Label>
-            <Form.Control
-              type="description"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <Form.Text className="text-muted">Any further comments?</Form.Text>
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Style-ID</Form.Label>
-            <Form.Control
-              type="styleID"
-              placeholder="StyleID"
-              value={styleID}
-              onChange={(e) => setStyleID(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Text className="text-muted">
-              This is how we organize our images, Please start with &emsp;
-              Concept-"CONCEPTNAME"
-            </Form.Text>
-          </Form.Group>
-          <br />
-          <Form.Group>
-            <Form.Label className="formLabel">Main Image</Form.Label>
-            <Form.Control
-              type="file"
-              placeholder="MainImage"
-              // value=""
-              onChange={(e) => setMainImage(e.target.files[0])}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Version</Form.Label>
-            <Form.Control
-              type="version"
-              placeholder="Version"
-              value={version}
-              onChange={(e) => setVersion(e.target.value)}
-            />
-          </Form.Group>
-          <br />
-          <Button className="btncolor" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+    <div>
+      <h2 className="centerText">Generate Concept</h2>
+
+      <Card className="cardstyle">
+        <Form.Group className="text-center"></Form.Group>
+        <Card.Body>
+          <Form onSubmit={handleSubmit} encType="multipart/form-data">
+            <Form.Group>
+              <Form.Label className="formLabel">Title</Form.Label>
+              <Form.Control
+                type="title"
+                placeholder="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                What will we call this Concept?
+              </Form.Text>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Description</Form.Label>
+              <Form.Control
+                type="description"
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                Any further comments?
+              </Form.Text>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Style-ID</Form.Label>
+              <Form.Control
+                type="styleID"
+                placeholder="StyleID"
+                value={styleID}
+                onChange={(e) => setStyleID(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Text className="text-muted">
+                This is how we organize our images, Please start with &emsp;
+                Concept-"CONCEPTNAME"
+              </Form.Text>
+            </Form.Group>
+            <br />
+            <Form.Group>
+              <Form.Label className="formLabel">Main Image</Form.Label>
+              <Form.Control
+                type="file"
+                placeholder="MainImage"
+                // value=""
+                onChange={(e) => setMainImage(e.target.files[0])}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Version</Form.Label>
+              <Form.Control
+                type="version"
+                placeholder="Version"
+                value={version}
+                onChange={(e) => setVersion(e.target.value)}
+              />
+            </Form.Group>
+            <br />
+            <Button className="btncolor" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

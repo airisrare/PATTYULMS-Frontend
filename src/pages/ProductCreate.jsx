@@ -3,6 +3,7 @@ import { Card, Form, Button } from "react-bootstrap";
 import "../pages/page.css";
 import { useState } from "react";
 import ProductService from "../service/ProductService";
+import { useNavigate } from "react-router-dom";
 
 function ProductCreate() {
   const [title, setTitle] = useState("");
@@ -14,6 +15,8 @@ function ProductCreate() {
   const [file, setMainImage] = useState("");
   const [additionalFiles, setAdditionalFiles] = useState("");
   const [version, setVersion] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -33,119 +36,138 @@ function ProductCreate() {
     ProductService.postProduct(formData)
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
+    navigate("/");
   };
   return (
-    <Card className="cardstyle">
-      <Card.Header>Product Create</Card.Header>
-      <Card.Body>
-        <Form
-          onSubmit={handleSubmit}
-          action="Home.jsx"
-          encType="multipart/form-data"
-        >
-          <Form.Group>
-            <Form.Label className="formLabel">Title</Form.Label>
-            <Form.Control
-              type="title"
-              placeholder="Title"
-              // className="forminputsmall"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Price</Form.Label>
-            <Form.Control
-              type="price"
-              placeholder="Price USD"
-              // className="forminputsmall"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-            {/* <Form.Text className="text-muted">
+    <div>
+      <h2 className="centerText">Generate Product</h2>
+      <Card className="cardstyle">
+        <Card.Body>
+          <Form onSubmit={handleSubmit} encType="multipart/form-data">
+            <Form.Group>
+              <Form.Label className="formLabel">Title</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Title"
+                // className="forminputsmall"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Price</Form.Label>
+              <Form.Control
+                type="price"
+                placeholder="Price USD"
+                // className="forminputsmall"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+              {/* <Form.Text className="text-muted">
           Any further comments?
         </Form.Text> */}
-          </Form.Group>
+            </Form.Group>
 
-          <Form.Group>
-            <Form.Label className="formLabel">Gender</Form.Label>
-            <Form.Control
-              type="gender"
-              placeholder="Gender"
-              // className="forminputsmall"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Size</Form.Label>
-            <Form.Control
-              type="size"
-              placeholder="Size"
-              // className="forminputsmall"
-              value={size}
-              onChange={(e) => setSize(e.target.value)}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Style-ID</Form.Label>
-            <Form.Control
-              type="styleID"
-              placeholder="StyleID"
-              // className="forminputsmall"
-              value={styleID}
-              onChange={(e) => setStyleID(e.target.value)}
-            />
-            <Form.Text className="text-muted">
-              This is how we organize our images, Please start with &emsp;
-              Concept-"CONCEPTNAME"
-            </Form.Text>
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Description</Form.Label>
-            <Form.Control
-              type="description"
-              placeholder="Description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <Form.Text className="text-muted">Any further comments?</Form.Text>
-          </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Gender</Form.Label>
+              <Form.Select
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option>Gender</option>
+                <option value="Mens">Mens</option>
+                <option value="Womens">Womens</option>
+                <option value="Any">Any</option>
+                {/* onChange={(e) => setGender(e.target.value)} */}
+              </Form.Select>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Size</Form.Label>
+              <Form.Select
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+              >
+                <option>Size</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Style-ID</Form.Label>
+              <Form.Control
+                type="styleID"
+                placeholder="StyleID"
+                // className="forminputsmall"
+                value={styleID}
+                onChange={(e) => setStyleID(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                This is how we organize our images, Please start with &emsp;
+                Concept-"CONCEPTNAME"
+              </Form.Text>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Description</Form.Label>
+              <Form.Control
+                type="description"
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <Form.Text className="text-muted">
+                Any further comments?
+              </Form.Text>
+            </Form.Group>
 
-          <br />
-          <Form.Group>
-            <Form.Label className="formLabel">Main Image</Form.Label>
-            <Form.Control
-              type="file"
-              placeholder="MainImage"
-              onChange={(e) => setMainImage(e.target.files[0])}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Additional Images</Form.Label>
-            <Form.Control
-              type="file"
-              placeholder="AdditionalImages"
-              onChange={(e) => setAdditionalFiles(e.target.files[0])}
-            />
-          </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Version</Form.Label>
-            <Form.Control
+            <br />
+            <Form.Group>
+              <Form.Label className="formLabel">Main Image</Form.Label>
+              <Form.Control
+                type="file"
+                placeholder="MainImage"
+                onChange={(e) => setMainImage(e.target.files[0])}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Additional Images</Form.Label>
+              <Form.Control
+                type="file"
+                placeholder="AdditionalImages"
+                onChange={(e) => setAdditionalFiles(e.target.files[0])}
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label className="formLabel">Version</Form.Label>
+              {/* <Form.Control
               type="version"
               placeholder="Version"
               className="forminputsmall"
               value={version}
               onChange={(e) => setVersion(e.target.value)}
-            />
-          </Form.Group>
-          <br />
-          <Button className="btncolor" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Card.Body>
-    </Card>
+            /> */}
+              <Form.Select
+                value={version}
+                onChange={(e) => setVersion(e.target.value)}
+              >
+                <option>version</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </Form.Select>
+            </Form.Group>
+            <br />
+            <Button className="btncolor" type="submit">
+              Submit
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+    </div>
   );
 }
 

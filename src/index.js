@@ -12,7 +12,11 @@ import Register from "./pages/Register";
 import ConceptCreate from "./pages/ConceptCreate";
 import ProductCreate from "./pages/ProductCreate";
 import EmblemLogo from "./components/EmblemLogo";
+import ProductInspect from "./pages/ProductInspect";
 import UsersPage from "./pages/UsersPage";
+import UserInspect from "./pages/UserInspect";
+import EditProduct from "./pages/EditProduct";
+import EditUser from "./pages/EditUser";
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(
@@ -31,7 +35,11 @@ export default function App() {
         <Route path="register" element={<Register />} />
         <Route path="conceptCreate" element={<ConceptCreate />} />
         <Route path="productCreate" element={<ProductCreate />} />
-        <Route path="usersPage" element={<UsersPage />} />
+        <Route path="productInspect/:id" element={<ProductInspect />} />
+        <Route path="users" element={<UsersPage />} />
+        <Route path="userInspect/:id" element={<UserInspect />} />
+        <Route path="editProduct/:id" element={<EditProduct />} />
+        <Route path="editUser/:id" element={<EditUser />} />
       </Routes>
     </BrowserRouter>
   );

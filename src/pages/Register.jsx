@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, Form, Button } from "react-bootstrap";
 import UserService from "../service/UserService";
+import { Link } from "react-router-dom";
 
 //Functional component for Registering a user for database
 function Register() {
@@ -34,7 +35,7 @@ function Register() {
   return (
     <Card className="cardstyle">
       <Form.Group className="text-center"></Form.Group>
-      <Card.Header>Login</Card.Header>
+      <Card.Header>Register</Card.Header>
       <Card.Body>
         {/* Must make sure we are using the form data */}
         <Form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -89,9 +90,11 @@ function Register() {
           </Button>
           <br />
           <br />
-          <Button className="btncolor" type="submit">
-            Sign up
-          </Button>
+          <Link to={"/Login"}>
+            <Button className="btncolor" type="submit">
+              Login
+            </Button>
+          </Link>
         </Form>
       </Card.Body>
     </Card>
