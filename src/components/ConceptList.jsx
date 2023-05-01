@@ -9,7 +9,7 @@ function ConceptList() {
 
   //runs when component renders -> we can add a dependency array for changes
   //res is actual data coming from api
- 
+
   useEffect(() => {
     ConceptService.getAll()
       .then((res) => setConcepts(res.data))
@@ -24,7 +24,7 @@ function ConceptList() {
       </p>
       {
         //concept - individual array
-        concepts.map((concept) => {
+        concepts.reverse().map((concept) => {
           return (
             <Card className="conceptDisplay" key={concept.title}>
               <Card.Img

@@ -6,6 +6,7 @@ import ProductService from "../service/ProductService";
 import { useNavigate } from "react-router-dom";
 
 function ProductCreate() {
+  //Create a product, use initial null states
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -18,6 +19,7 @@ function ProductCreate() {
 
   const navigate = useNavigate();
 
+  //Add form data
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -33,6 +35,7 @@ function ProductCreate() {
     formData.append("version", version);
     console.log(formData);
 
+    //Post product function found in product service, with data
     ProductService.postProduct(formData)
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
@@ -49,7 +52,6 @@ function ProductCreate() {
               <Form.Control
                 type="text"
                 placeholder="Title"
-                // className="forminputsmall"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
               />
@@ -59,15 +61,10 @@ function ProductCreate() {
               <Form.Control
                 type="price"
                 placeholder="Price USD"
-                // className="forminputsmall"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
-              {/* <Form.Text className="text-muted">
-          Any further comments?
-        </Form.Text> */}
             </Form.Group>
-
             <Form.Group>
               <Form.Label className="formLabel">Gender</Form.Label>
               <Form.Select

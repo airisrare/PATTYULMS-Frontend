@@ -6,17 +6,20 @@ import UserService from "../service/UserService";
 function UserInspect() {
   const [user, setUser] = useState([]);
 
+  //Navigate back to the home page
   const navigate = useNavigate();
 
   const { id } = useParams();
   console.log("this page is for user " + id);
 
+  //get user id from userservice
   useEffect(() => {
     UserService.getUser(id)
       .then((res) => setUser(res.data))
       .catch((error) => console.log(error));
   }, [id]);
 
+  //Delete user function found in the user Service
   function handleDelete() {
     UserService.deleteUser(id)
       .then(() => {
@@ -45,9 +48,6 @@ function UserInspect() {
             </Form.Group>
             <Form.Group>
               <Form.Label>Email: {user.email} </Form.Label>
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Role: {user.role}</Form.Label>
             </Form.Group>
           </Form>
         </div>

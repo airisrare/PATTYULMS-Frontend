@@ -9,6 +9,7 @@ function UserList() {
   //Log and make sure we have all the users
   console.log(users);
 
+  //get all users
   useEffect(() => {
     UserService.getAll()
       .then((res) => setUsers(res.data))
@@ -26,8 +27,9 @@ function UserList() {
                 <Link to={`/userInspect/${user.userID}`} className="colorLink">
                   <Card>
                     <Card.Body>
+                      {/* User credentials */}
                       <Card.Title>Username: {user.username}</Card.Title>
-                      <Card.Title>Role: {user.role}</Card.Title>
+                      <Card.Title>Email: {user.email}</Card.Title>
                     </Card.Body>
                   </Card>
                 </Link>

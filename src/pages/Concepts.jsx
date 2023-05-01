@@ -5,6 +5,7 @@ class Concepts extends React.Component {
   render() {
     return (
       <div>
+        {/* Concept list */}
         <ConceptList />
       </div>
     );

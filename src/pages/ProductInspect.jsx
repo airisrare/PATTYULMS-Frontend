@@ -28,7 +28,17 @@ function ProductInspect() {
   }, [id]);
 
   const navigate = useNavigate();
+  //Set user state to not signed in
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  //get token from local computer storage
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsAuthenticated(true);
+    }
+  }, []);
 
+  //Delete product function found in the product service
   function handleDelete() {
     ProductService.deleteProduct(id)
       .then(() => {
@@ -84,16 +94,19 @@ function ProductInspect() {
                 <Form.Label>Size: {product && product.size}</Form.Label>
               </Form.Group>
               <br></br>
-
-              <Button variant="danger" onClick={handleDelete}>
-                Delete
-              </Button>
-
-              <Link to={`/editProduct/${product.productID}`}>
-                <Button variant="warning">Edit</Button>
+              {isAuthenticated && (
+                <>
+                  <Button variant="danger" onClick={handleDelete}>
+                    Delete
+                  </Button>
+                  <Link to={`/editProduct/${product.productID}`}>
+                    <Button variant="warning">Edit</Button>
+                  </Link>
+                </>
+              )}
+              <Link to={`/checkout`}>
+                <Button>Checkout</Button>
               </Link>
-
-              <Button className="addToCart">Add To cart</Button>
             </Form>
           </div>
         </Col>
@@ -101,7 +114,6 @@ function ProductInspect() {
     </Container>
   );
 }
-
 export default ProductInspect;
 
 // Documentation for bootstrap carousel image rotation

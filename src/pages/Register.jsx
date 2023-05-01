@@ -10,7 +10,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("1");
+  const [role, setRole] = useState("user");
 
   //button submit event handler
   const handleSubmit = (event) => {
@@ -35,31 +35,31 @@ function Register() {
   return (
     <Card className="cardstyle">
       <Form.Group className="text-center"></Form.Group>
-      <Card.Header>Register</Card.Header>
+      <Card.Header className="formLabel">Register</Card.Header>
       <Card.Body>
         {/* Must make sure we are using the form data */}
         <Form onSubmit={handleSubmit} encType="multipart/form-data">
           <Form.Group>
             <Form.Group>
-              <Form.Label>First Name</Form.Label>
+              <Form.Label className="formLabel">First Name</Form.Label>
               <Form.Control
                 type="firstname"
-                placeholder="FirstName"
+                placeholder="First Name"
                 value={firstname}
                 onChange={(e) => setFirstName(e.target.value) && setRole("1")}
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Last Name</Form.Label>
+              <Form.Label className="formLabel">Last Name</Form.Label>
               <Form.Control
                 type="lastname"
-                placeholder="LastName"
+                placeholder="Last Name"
                 value={lastname}
                 onChange={(e) => setLastName(e.target.value)}
               />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Email</Form.Label>
+              <Form.Label className="formLabel">Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="Email"
@@ -67,7 +67,7 @@ function Register() {
                 onChange={(e) => setEmail(e.target.value)}
               />
             </Form.Group>
-            <Form.Label>UserName</Form.Label>
+            <Form.Label className="formLabel">UserName</Form.Label>
             <Form.Control
               type="username"
               placeholder="Username"
@@ -76,7 +76,7 @@ function Register() {
             />
           </Form.Group>
           <Form.Group>
-            <Form.Label>Password</Form.Label>
+            <Form.Label className="formLabel">Password</Form.Label>
             <Form.Control
               type="password"
               placeholder="Password"

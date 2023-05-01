@@ -1,6 +1,7 @@
 import http from "../http-common";
 
 class ProductService {
+  //Product service communicated with out backend functions
   getAll() {
     return http.get("/api/products");
   }

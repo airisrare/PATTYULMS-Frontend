@@ -151,21 +151,6 @@ function EditProduct() {
               onChange={(e) => handleInput(e)}
             />
           </Form.Group>
-          <Form.Group>
-            <Form.Label className="formLabel">Version</Form.Label>
-            <Form.Select
-              onChange={(e) => handleInput(e)}
-              type="text"
-              name="size"
-              value={product.size}
-            >
-              <option value="XS">XS</option>
-              <option value="S">S</option>
-              <option value="M">M</option>
-              <option value="L">L</option>
-              <option value="XL">XL</option>
-            </Form.Select>
-          </Form.Group>
 
           <br />
           <Button className="btncolor" onClick={handleEdit}>

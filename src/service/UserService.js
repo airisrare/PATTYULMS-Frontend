@@ -1,6 +1,7 @@
 import http from "../http-common";
 
 class UserService {
+  //Product service communicated with out backend functions
   getAll() {
     return http.get("/users/everyone");
   }
@@ -19,6 +20,15 @@ class UserService {
 
   register(data) {
     return http.post("/users/everyone", data);
+  }
+
+  signIn(userData) {
+    return http.post("/api/auth/signin", userData, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+        "Content-Type": "application/json",
+      },
+    });
   }
 }
 

@@ -4,6 +4,7 @@ import "../pages/page.css";
 import ConceptService from "../service/ConceptService";
 import { useState } from "react";
 
+//Create a concept
 function ConceptCreate() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -11,6 +12,7 @@ function ConceptCreate() {
   const [file, setMainImage] = useState("");
   const [version, setVersion] = useState("");
 
+  //submit form data
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -22,6 +24,7 @@ function ConceptCreate() {
     formData.append("version", version);
     console.log(formData);
 
+    //add concept function found in concept service
     ConceptService.postConcept(formData)
       .then((res) => console.log(res))
       .catch((error) => console.log(error));
